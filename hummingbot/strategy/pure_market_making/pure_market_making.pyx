@@ -752,8 +752,9 @@ cdef class PureMarketMakingStrategy(StrategyBase):
             list buys = []
             list sells = []
 
-        buy_reference_price = sell_reference_price = self.get_price()
-
+         buy_reference_price =self.get_mid_price()
+        sell_reference_price = self.get_price()
+        
         if self._inventory_cost_price_delegate is not None:
             inventory_cost_price = self._inventory_cost_price_delegate.get_price()
             if inventory_cost_price is not None:
